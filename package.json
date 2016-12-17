@@ -1,0 +1,29 @@
+{
+  "name": "stdlm",
+  "version": "0.1.0",
+  "description": "Lambdant standard library.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edge/stdlm.git"
+  },
+  "keywords": [
+    "lambdant",
+    "stdlib",
+    "standard",
+    "library"
+  ],
+  "author": "synchronous",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/edge/stdlm/issues"
+  },
+  "homepage": "https://github.com/edge/stdlm#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0"
+  }
+}
