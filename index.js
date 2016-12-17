@@ -39,6 +39,7 @@ module.exports = {
 	add, sub, mul, div,
 	map, foldl, foldr, foldl1, foldr1,
 	sum, product,
+	log,
 	id, call, compose, constant, flip, apply, join, on,
 	curry2, curry3, curry4, curry5,
 	uncurry2, uncurry3, uncurry4, uncurry5
