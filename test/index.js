@@ -4,7 +4,8 @@ const {
 	sum, product,
 	id, call, compose, constant, flip, apply, join, on,
 	curry2, curry3, curry4, curry5,
-	uncurry2, uncurry3, uncurry4, uncurry5
+	uncurry2, uncurry3, uncurry4, uncurry5,
+	create
 } = require('..')
 const { expect } = require('chai')
 
@@ -156,5 +157,12 @@ describe('uncurry', () => {
 
 	it('5', () => {
 		expect(uncurry5(a => b => c => d => e => a + b + c + d + e)('a', 'b', 'c', 'd', 'e')).to.equal('abcde')
+	})
+})
+
+describe('special', () => {
+	it('create', () => {
+		const now = Date.now()
+		expect(create(Date)([now]).getTime()).to.equal(now)
 	})
 })
