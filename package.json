@@ -2,9 +2,10 @@
   "name": "stdlm",
   "version": "0.3.0",
   "description": "Lambdant standard library.",
-  "main": "index.js",
+  "main": "./lib/index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+	"build": "babel src -d lib"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,9 @@
   },
   "homepage": "https://github.com/edge/stdlm#readme",
   "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-preset-latest": "^6.16.0",
+    "babel-preset-stage-0": "^6.16.0",
     "chai": "^3.5.0",
     "mocha": "^3.2.0"
   }

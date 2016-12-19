@@ -8,7 +8,7 @@ const {
 	curry2, curry3, curry4, curry5,
 	uncurry2, uncurry3, uncurry4, uncurry5,
 	create
-} = require('..')
+} = require('../src')
 const { expect } = require('chai')
 
 describe('numeric', () => {
