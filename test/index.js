@@ -1,5 +1,7 @@
 const {
 	add, sub, mul, div,
+	not, or, and, bnot, bor, band, mod, lsh, rsh,
+	is, eq, similar, xor,
 	map, foldl, foldr, foldl1, foldr1,
 	sum, product,
 	id, call, compose, constant, flip, apply, join, on,
@@ -24,6 +26,111 @@ describe('numeric', () => {
 
 	it('divide', () => {
 		expect(div(5)(4)).to.equal(1.25)
+	})
+})
+
+describe('logic', () => {
+	it('not', () => {
+		expect(not(true)).to.equal(false)
+	})
+
+	it('or', () => {
+		expect(or(true)(false)).to.equal(true)
+	})
+
+	it('and', () => {
+		expect(and(true)(false)).to.equal(false)
+	})
+
+	it('bnot', () => {
+		expect(bnot(0)).to.equal(-1)
+	})
+
+	it('bor', () => {
+		expect(bor(0b10100)(0b11001)).to.equal(0b11101)
+	})
+
+	it('band', () => {
+		expect(band(0b10100)(0b11001)).to.equal(0b10000)
+	})
+
+	it('mod', () => {
+		expect(mod(13)(8)).to.equal(5)
+	})
+
+	it('lsh', () => {
+		expect(lsh(2)(2)).to.equal(8)
+	})
+
+	it('rsh', () => {
+		expect(rsh(27)(1)).to.equal(13)
+	})
+})
+
+describe('equality', () => {
+	it('is', () => {
+		expect(is(1)(1)).to.be.true
+		expect(is(1)(2)).to.be.false
+		expect(is(new Date)(new Date)).to.be.false
+		expect(is([1])([1])).to.be.false
+		expect(is(/asd/g)(/asd/)).to.be.false
+		expect(is(/asd/gi)(/asd/ig)).to.be.false
+	})
+
+	it('eq', () => {
+		expect(eq(1)(1)).to.be.true
+		expect(eq(1)(2)).to.be.false
+		expect(eq(new Date)(new Date)).to.be.true
+		expect(eq([1])([1])).to.be.true
+		expect(eq([1])([2])).to.be.false
+		expect(eq(/asd/g)(/asd/)).to.be.false
+		expect(eq(/asd/gi)(/asd/ig)).to.be.true
+		expect(similar(null)(null)).to.be.true
+		expect(similar(undefined)(undefined)).to.be.true
+		expect(similar(null)(undefined)).to.be.false
+		expect(eq({
+			a: 5,
+			b: {
+				c: /asd/
+			},
+			d: [1, 2, 3]
+		})({
+			a: 5,
+			b: {
+				c: /asd/
+			},
+			d: [1, 2, 3]
+		})).to.be.true
+		expect(eq({
+			a: 5,
+			b: {
+				c: /asd/
+			},
+			d: [1, 2, 4]
+		})({
+			a: 5,
+			b: {
+				c: /asd/
+			},
+			d: [1, 2, 3]
+		})).to.be.false
+	})
+
+	it('similar', () => {
+		expect(similar(1)(1)).to.be.true
+		expect(similar(1)(2)).to.be.false
+		expect(similar(new Date)(new Date)).to.be.true
+		expect(similar([1])([1])).to.be.false
+		expect(similar(/asd/g)(/asd/)).to.be.false
+		expect(similar(/asd/gi)(/asd/ig)).to.be.true
+		expect(similar(null)(null)).to.be.true
+		expect(similar(undefined)(undefined)).to.be.true
+		expect(similar(null)(undefined)).to.be.false
+	})
+
+	it('xor', () => {
+		expect(xor(true)(false)).to.equal(1)
+		expect(xor(true)(true)).to.equal(0)
 	})
 })
 
@@ -160,7 +267,7 @@ describe('uncurry', () => {
 	})
 })
 
-describe('special', () => {
+describe('other', () => {
 	it('create', () => {
 		const now = Date.now()
 		expect(create(Date)([now]).getTime()).to.equal(now)

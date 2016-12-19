@@ -24,17 +24,62 @@ $ yarn test
 ## Numeric
 
 ### add
-`Number a => a -> a -> a`
+`Number -> Number -> Number`
 adds two Numbers  
 ### sub
-`Number a => a -> a -> a`
+`Number -> Number -> Number`
 subtracts two Numbers  
 ### mul
-`Number a => a -> a -> a`
+`Number -> Number -> Number`
 multiplies two Numbers  
 ### div
-`Number a => a -> a -> a`
+`Number -> Number -> Number`
 divides two Numbers  
+
+## Logic
+
+### not
+`Boolean -> Boolean`
+computes logical NOT
+### or
+`Boolean -> Boolean -> Boolean`
+computes logical OR
+### and
+`Boolean -> Boolean -> Boolean`
+computes logical AND
+### bnot
+`Number -> Number`
+computes bitwise NOT
+### bor
+`Number -> Number`
+computes bitwise OR
+### band
+`Number -> Number`
+computes bitwise AND
+### mod
+`Number -> Number -> Number`
+computes modulus
+### lsh
+`Number -> Number -> Number`
+computes left shift
+### rsh
+`Number -> Number -> Number`
+computes right shift
+
+## Equality
+
+### is
+`a -> b -> Boolean`
+determines reference or strict primitive equality (basic, least expensive)
+### similar
+`a -> b -> Boolean`
+determines basic or Date/NaN/RegExp equality (similar)
+### eq
+`a -> b -> Boolean`
+determines similar or recursive Object/Array equality (deep, most expensive)
+### xor
+`a -> b -> Number`
+computes bitwise XOR
 
 ## List
 
@@ -114,5 +159,5 @@ curries a function for five arguments
 ## Other
 
 ### create
-`Constructor a c => a -> [b] -> c`
+`(Constructor From a To c) => a -> [b] -> c`
 instantiates the first argument with the second argument as the parameters

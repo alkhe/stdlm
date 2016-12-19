@@ -1,7 +1,24 @@
+const { eq: plain_eq, similar: plain_similar } = require('./equality')
+
 const add = a => b => a + b
 const sub = a => b => a - b
 const mul = a => b => a * b
 const div = a => b => a / b
+
+const not = x => !x
+const or = a => b => a || b
+const and = a => b => a && b
+const bnot = x => ~x
+const bor = a => b => a | b
+const band = a => b => a & b
+const mod = a => b => a % b
+const lsh = a => b => a << b
+const rsh = a => b => a >> b
+
+const is = a => b => a === b
+const eq = a => b => plain_eq(a, b)
+const similar = a => b => plain_similar(a, b)
+const xor = a => b => a ^ b
 
 const map = f => t => t.map(f)
 
@@ -39,6 +56,8 @@ const create = c => args => new c(...args)
 
 module.exports = {
 	add, sub, mul, div,
+	not, or, and, bnot, bor, band, mod, lsh, rsh,
+	is, eq, similar, xor,
 	map, foldl, foldr, foldl1, foldr1,
 	sum, product,
 	log,
