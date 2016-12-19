@@ -1,6 +1,6 @@
 {
   "name": "stdlm",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "Lambdant standard library.",
   "main": "index.js",
   "scripts": {
