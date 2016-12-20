@@ -2,7 +2,7 @@ const {
 	add, sub, mul, div,
 	not, or, and, bnot, bor, band, mod, lsh, rsh,
 	is, eq, similar, xor,
-	map, foldl, foldr, foldl1, foldr1,
+	map, filter, foldl, foldr, foldl1, foldr1,
 	sum, product,
 	id, call, compose, constant, flip, apply, join, on,
 	curry2, curry3, curry4, curry5,
@@ -141,6 +141,15 @@ describe('list', () => {
 		const expected = [2, 3, 4, 5, 6]
 		expect(
 			map(mapping)(traversable)
+		).to.deep.equal(expected)
+	})
+
+	it('filter', () => {
+		const predicate = is(5)
+		const traversable = [1, 5, 2, 3, 4, 5]
+		const expected = [5, 5]
+		expect(
+			filter(predicate)(traversable)
 		).to.deep.equal(expected)
 	})
 

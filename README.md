@@ -86,6 +86,9 @@ computes bitwise XOR
 ### map
 `(a -> b) -> [a] -> [b]`
 maps a function over an array  
+### filter
+`(a -> Boolean) -> [a] -> [a]`
+filters an array by predicate
 ### foldl
 `(a -> b) -> a -> [b] -> [a]`
 reduce from the left with a function and an initial value over an array  
@@ -93,7 +96,7 @@ reduce from the left with a function and an initial value over an array
 `(a -> b) -> a -> [b] -> [a]`
 reduce from the right with a function and an initial value over an array  
 ### foldl1
-`(a -> b) -> [a] -> [a]`
+`(a -> a) -> [a] -> [a]`
 reduce from the left with a function over an array, starting with the leftmost value  
 ### foldr1
 `(a -> a) -> [a] -> [a]`

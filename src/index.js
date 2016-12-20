@@ -21,6 +21,7 @@ const similar = a => b => plain_similar(a, b)
 const xor = a => b => a ^ b
 
 const map = f => t => t.map(f)
+const filter = p => t => t.filter(p)
 
 const foldl = f => a => t => t.reduce(uncurry2(f), a)
 const foldr = f => a => t => t.reduceRight(uncurry2(f), a)
@@ -58,7 +59,7 @@ module.exports = {
 	add, sub, mul, div,
 	not, or, and, bnot, bor, band, mod, lsh, rsh,
 	is, eq, similar, xor,
-	map, foldl, foldr, foldl1, foldr1,
+	map, filter, foldl, foldr, foldl1, foldr1,
 	sum, product,
 	log,
 	id, call, compose, constant, flip, apply, join, on,
